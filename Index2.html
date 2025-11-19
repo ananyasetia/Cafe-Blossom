@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Café Blossom — Luxury Café, Jaipur</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ---------- THEME COLORS ---------- */
+    :root{
+      --bg-rose: #F7EDE9;        /* rose-beige */
+      --old-money: #C8B39A;      /* old-money brown */
+      --latte: #EAD9C4;          /* light latte */
+      --deep: #4A2F23;           /* deep chocolate */
+      --muted: #6b5a50;
+      --gold: #C9A84B;
+      --card: #fffaf6;
+      --radius: 14px;
+      --maxw: 1150px;
+    }
+
+    /* ---------- RESET ---------- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color: var(--deep);
+      background: linear-gradient(180deg, var(--bg-rose), #fffaf3);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.45;
+    }
+
+    /* ---------- CONTAINER ---------- */
+    .site {
+      max-width: var(--maxw);
+      margin: 28px auto;
+      padding: 0 20px 40px;
+    }
+
+    /* ---------- HEADER / NAV ---------- */
+    header.header {
+      background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(250,246,241,0.85));
+      border-radius: 12px;
+      padding: 26px;
+      box-shadow: 0 14px 40px rgba(70,45,30,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display:flex;
+      gap:16px;
+      align-items:center;
+    }
+
+    /* logo monogram box */
+    .monogram {
+      width:70px;
+      height:70px;
+      border-radius:12px;
+      background: linear-gradient(180deg, var(--gold), #e6bf44);
+      display:grid;
+      place-items:center;
+      box-shadow: 0 10px 26px rgba(160,115,50,0.12);
+      flex-shrink:0;
+    }
+    .monogram svg { width:42px; height:42px; display:block; }
+
+    .title {
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+    }
+
+    .title .name {
+      font-family: "Playfair Display", serif;
+      font-weight:700;
+      font-size:36px;
+      color:var(--deep);
+      letter-spacing:0.6px;
+    }
+
+    .title .tag {
+      font-size:12px;
+      color:var(--muted);
+      margin-top:6px;
+      font-weight:600;
+      font-family: "Playfair Display", serif;
+      letter-spacing:1px;
+    }
+
+    nav.nav {
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    nav.nav a {
+      text-decoration:none;
+      color:var(--deep);
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:600;
+      font-family: "Playfair Display", serif;
+      transition: all .18s ease;
+      border: 1px solid rgba(74,47,35,0.04);
+    }
+    nav.nav a:hover {
+      transform: translateY(-3px);
+      color: var(--old-money);
+      box-shadow: 0 10px 24px rgba(170,115,45,0.06);
+    }
+
+    .reserve {
+      background: linear-gradient(90deg, var(--gold), #ffd66b);
+      color: #2f2118;
+      padding:9px 14px;
+      border-radius:10px;
+      font-weight:700;
+      border:none;
+      cursor:pointer;
+      box-shadow: 0 10px 30px rgba(197,154,71,0.14);
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:28px;
+      margin-top:28px;
+      align-items:center;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,250,246,0.95));
+      border-radius:16px;
+      padding:28px;
+      box-shadow: 0 18px 50px rgba(60,30,20,0.06);
+    }
+
+    .hero-card h1 {
+      font-family: "Playfair Display", serif;
+      font-size:36px;
+      margin-bottom:10px;
+      color:var(--deep);
+    }
+
+    .hero-card p { color:var(--muted); margin-bottom:16px; }
+
+    .hero-actions { display:flex; gap:12px; flex-wrap:wrap; }
+
+    .btn {
+      padding:10px 14px;
+      border-radius:10px;
+      border: 1px solid rgba(0,0,0,0.06);
+      cursor:pointer;
+      font-weight:700;
+      background:transparent;
+    }
+    .btn.primary {
+      background: var(--deep);
+      color: #fff;
+      border:none;
+      box-shadow: 0 8px 24px rgba(74,47,35,0.12);
+    }
+    .btn.ghost {
+      background: transparent;
+      color: var(--deep);
+    }
+
+    .hero-photo {
+      border-radius:14px;
+      overflow:hidden;
+      border: 6px solid rgba(74,47,35,0.04);
+      box-shadow: 0 18px 44px rgba(40,20,10,0.06);
+    }
+    .hero-photo img { width:100%; height:420px; object-fit:cover; display:block; }
+
+    /* ---------- SECTIONS ---------- */
+    .section {
+      margin-top:26px;
+      padding:26px;
+      border-radius:12px;
+    }
+
+    .section h2 {
+      font-family:"Playfair Display", serif;
+      font-size:28px;
+      margin-bottom:16px;
+      color:var(--deep);
+    }
+
+    /* Simple fade-in animation (CSS only, easy to explain) */
+    .fade {
+      opacity:0;
+      transform: translateY(10px);
+      animation: fadeIn 700ms ease forwards;
+      animation-delay: 120ms;
+    }
+    @keyframes fadeIn {
+      to { opacity:1; transform: translateY(0); }
+    }
+
+    /* ---------- MENU (4 coffees + 4 cakes) ---------- */
+    .menu-grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap:18px;
+      margin-top:12px;
+    }
+
+    .menu-card {
+      background: var(--card);
+      border-radius:12px;
+      padding:12px;
+      border: 1px solid rgba(74,47,35,0.04);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .menu-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(70,40,20,0.1); }
+
+    .menu-card img { width:100%; height:180px; object-fit:cover; border-radius:8px; }
+    .menu-card h3 { font-family:"Playfair Display", serif; margin:10px 0 6px; font-size:16px; color:var(--deep); }
+    .menu-card p { color:var(--muted); margin:0; font-size:14px; }
+    .menu-card .price { margin-top:10px; font-weight:800; color:var(--old-money); font-size:16px; }
+
+    /* ---------- GALLERY ---------- */
+    .gallery-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-top:12px; }
+    .gallery-card { border-radius:12px; overflow:hidden; border:1px solid rgba(74,47,35,0.04); }
+    .gallery-card img { width:100%; height:200px; object-fit:cover; display:block; }
+
+    /* ---------- ABOUT / CONTACT / REVIEWS ---------- */
+    .two-col { display:grid; grid-template-columns: 1fr 360px; gap:18px; align-items:start; margin-top:12px; }
+    .about { color:var(--muted); font-size:15px; line-height:1.6; }
+    .contact-box { background: linear-gradient(180deg,#fff,#fffaf6); padding:14px; border-radius:10px; border:1px solid rgba(74,47,35,0.04); }
+    .contact-box p {margin:6px 0; color:var(--muted)}
+
+    /* Reviews simple list */
+    .reviews-list { margin-top:10px; display:flex; flex-direction:column; gap:8px; }
+    .review { background:#fffaf6; padding:10px; border-radius:8px; border-left:4px solid var(--gold); color:var(--muted); }
+
+    /* ---------- FOOTER ---------- */
+    footer { margin-top:26px; text-align:center; color:var(--muted); font-size:14px; padding:18px; }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width:980px) {
+      .hero { grid-template-columns: 1fr; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="site">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="brand">
+        <div class="monogram" aria-hidden="true">
+          <!-- simple coffee monogram SVG -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+            <path d="M3 12s1-4 7-4 7 4 7 4-1 4-7 4S3 12 3 12z" fill="#fff" opacity="0.95"/>
+            <path d="M7 14c0 1.657 2 3 5 3s5-1.343 5-3" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+          </svg>
+        </div>
+        <div class="title">
+          <div class="name">Café Blossom</div>
+          <div class="tag">European Luxury · Pink Street, Jaipur</div>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#menu">Menu</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#reviews">Reviews</a>
+        <a class="reserve" href="#contact">Reserve</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-card fade" style="animation-delay:0ms">
+        <h1>Soft mornings. Golden afternoons. Old-money charm.</h1>
+        <p>Hand-roasted single-origin beans, French patisserie techniques, and interiors inspired by London cafés — now at Pink Street, Jaipur.</p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#menu">View Menu</a>
+          <a class="btn ghost" href="#gallery">Gallery</a>
+          <a class="btn ghost" href="#contact">Visit Us</a>
+        </div>
+
+        <div style="margin-top:14px;color:var(--muted);font-size:13px">Open: 9:00 AM — 11:00 PM · Phone: +91 98765 43210</div>
+      </div>
+
+      <div class="hero-photo fade" style="animation-delay:120ms">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1500&q=80" alt="luxury cafe interior">
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section id="menu" class="section fade" style="animation-delay:240ms">
+      <h2>Exquisite Coffees</h2>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1200&q=80" alt="Flat white">
+          <h3>Flat White — Single Origin</h3>
+          <p>Velvety microfoam, precise extraction.</p>
+          <div class="price">₹420</div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1558583053-761b05086d3a?auto=format&fit=crop&w=1200&q=80" alt="Vienna cream">
+          <h3>Vienna Cream Espresso</h3>
+          <p>Intense shot with lightly sweetened Chantilly.</p>
+          <div class="price">₹499</div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1523942839745-7848d4a43320?auto=format&fit=crop&w=1200&q=80" alt="London fog">
+          <h3>London Fog Latte</h3>
+          <p>Earl Grey infusion with steamed milk & vanilla bean.</p>
+          <div class="price">₹460</div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1200&q=80" alt="Mocha">
+          <h3>Handcrafted Mocha Royale</h3>
+          <p>Single origin chocolate, espresso & a cloud of cream.</p>
+          <div class="price">₹499</div>
+        </div>
+      </div>
+
+      <h2 style="margin-top:26px">Decadent Patisseries</h2>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1541781286675-c7a5e19a2b30?auto=format&fit=crop&w=1200&q=80" alt="Truffle cake">
+          <h3>Royal Belgian Truffle Cake</h3>
+          <p>Decadent layers, gold-dusted finish.</p>
+          <div class="price">₹1299</div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1512058564366-c9e3a3d6f6d4?auto=format&fit=crop&w=1200&q=80" alt="Croissant cake">
+          <h3>Parisian Butter Croissant Cake</h3>
+          <p>Flaky butter layers with almond cream.</p>
+          <div class="price">₹1499</div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&w=1200&q=80" alt="Vanilla gateau">
+          <h3>Vanilla Orchid Gateau</h3>
+          <p>Light sponge with Madagascar vanilla cream.</p>
+          <div class="price">₹1199</div>
+        </div>
+
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1200&q=80" alt="Strawberry tart">
+          <h3>Strawberry & Rose Tart</h3>
+          <p>Fresh berries, rose chantilly, crisp pastry.</p>
+          <div class="price">₹1299</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="section fade" style="animation-delay:360ms">
+      <h2>Gallery — Interiors & Moments</h2>
+      <div class="gallery-grid">
+        <div class="gallery-card"><img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&w=1200&q=80" alt="Walnut seating"><div style="padding:8px"><strong>Walnut & Gold Seating</strong><div style="color:var(--muted);font-size:13px">Dark wood, brass details, warm lighting.</div></div></div>
+        <div class="gallery-card"><img src="https://images.unsplash.com/photo-1528588741716-9088f3f5f1cf?auto=format&fit=crop&w=1200&q=80" alt="Cafe corner"><div style="padding:8px"><strong>Cozy Corners</strong><div style="color:var(--muted);font-size:13px">Plush seating for long chats & study.</div></div></div>
+        <div class="gallery-card"><img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=80" alt="Street facade"><div style="padding:8px"><strong>European Facade</strong><div style="color:var(--muted);font-size:13px">Facade styling merged with Jaipur charm.</div></div></div>
+        <div class="gallery-card"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="Patisserie display"><div style="padding:8px"><strong>Patisserie Display</strong><div style="color:var(--muted);font-size:13px">Daily-baked cakes on display.</div></div></div>
+      </div>
+    </section>
+
+    <!-- ABOUT + CONTACT -->
+    <section id="about" class="section fade" style="animation-delay:480ms">
+      <h2>About Café Blossom</h2>
+      <div class="two-col">
+        <div>
+          <p class="about">Café Blossom is a luxe European-style café located on Pink Street, Jaipur. We roast single-origin beans, bake classic French pastries every morning, and design quiet corners for long conversations and focused work. Our palette is warm walnut, soft rose, and gold accents — a modern homage to old cafes of London and Paris.</p>
+          <p style="margin-top:10px;color:var(--muted)">Explainable: This page uses semantic HTML (section, header) and CSS-only animations (fade keyframe). No JavaScript functions — only anchor links for navigation and smooth scrolling via CSS.</p>
+        </div>
+
+        <aside class="contact-box">
+          <h3 style="margin:0 0 8px;font-family:'Playfair Display',serif">Visit Us</h3>
+          <p>📍 Pink Street, Jaipur, Rajasthan</p>
+          <p>⏰ 9:00 AM — 11:00 PM daily</p>
+          <p>📞 +91 98765 43210</p>
+          <div style="margin-top:12px"><a class="btn primary" href="#menu">See Menu</a></div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews" class="section fade" style="animation-delay:600ms">
+      <h2>Reviews</h2>
+      <div class="contact-box">
+        <p style="margin:0 0 8px;color:var(--muted)">Leave a quick note (non-functional form for submission explanation):</p>
+        <form onsubmit="return false;">
+          <input style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);margin-bottom:8px" placeholder="Your name">
+          <textarea style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);margin-bottom:8px" rows="3" placeholder="Your review"></textarea>
+          <div style="display:flex;gap:8px">
+            <button class="btn primary" type="button">Post (demo)</button>
+            <button class="btn" type="button">Clear</button>
+          </div>
+        </form>
+
+        <div class="reviews-list" style="margin-top:12px">
+          <div class="review">Ananya — "Beautiful space and the truffle cake is dreamy."</div>
+          <div class="review">Riya — "Perfect study corner with great coffee."</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION (map embed) -->
+    <section id="contact" class="section fade" style="animation-delay:720ms">
+      <h2>Contact & Map</h2>
+      <div class="two-col">
+        <div class="contact-box">
+          <h3 style="margin:0 0 8px;font-family:'Playfair Display',serif">Café Blossom</h3>
+          <p>Pink Street, Jaipur, Rajasthan</p>
+          <p>Phone: +91 98765 43210</p>
+          <p style="margin-top:8px;color:var(--muted)"></p>
+        </div>
+
+        <iframe src="https://www.google.com/maps?q=Pink%20Street%20Jaipur&output=embed" style="border:0;border-radius:10px;width:100%;height:260px"></iframe>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 Café Blossom · Pink Street, Jaipur
+    </footer>
+  </div>
+</body>
+</html>
